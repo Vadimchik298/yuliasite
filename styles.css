@@ -1,0 +1,451 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 16px; /* Базовый размер шрифта */
+}
+
+.hero {
+  background-image: url('images/tea.jpg'); /* Локальный файл для фона */
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  position: relative;
+}
+
+.welcome {
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.5s ease-in-out; /* Плавная смена фона */
+}
+
+.welcome.massage {
+  background-color: #ffe4c4; /* Персиковый фон для массажа */
+}
+
+.welcome.depilation {
+  background-color: #e6f3fa; /* Светло-голубой фон для депиляции */
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  color: #333; /* Чёрный текст */
+  margin-bottom: 20px;
+}
+
+.welcome p {
+  font-size: 1.2rem;
+  color: #333; /* Чёрный текст */
+  max-width: 800px;
+  margin: 0 auto 10px;
+}
+
+.welcome a {
+  color: #357abd;
+  text-decoration: underline;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* Расстояние между кнопками */
+  padding: 0;
+  background-color: #f9f9f9;
+  margin-top: -20px; /* Поднимаем к приветствию */
+  margin-bottom: -10px; /* Пристыковываем к контенту */
+  position: relative;
+  z-index: 1; /* Над контентом */
+}
+
+.tab-link {
+  color: #333; /* Чёрный текст для контраста */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding: 15px 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-link[data-tab="massage"] {
+  background-color: #ffe4c4; /* Персиковый для массажа */
+}
+
+.tab-link[data-tab="depilation"] {
+  background-color: #e6f3fa; /* Светло-голубой для депиляции */
+}
+
+.tab-link.active {
+  background-color: #ff8c00; /* Яркий персиковый для активной */
+  color: #ffffff; /* Белый текст для активной */
+  transform: translateY(-2px);
+}
+
+.tab-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #ff8c00; /* Подчёркивание */
+}
+
+.tab-link:hover {
+  background-color: #f28c38;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.tab-content {
+  padding: 40px 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.tab-content.active {
+  opacity: 1;
+}
+
+#massage {
+  background-color: #fff3e0; /* Тёплый бежевый фон */
+}
+
+#massage h2 {
+  color: #f28c38; /* Персиковый цвет */
+}
+
+#depilation {
+  background-color: #e6f3fa; /* Светло-голубой фон */
+}
+
+#depilation h2 {
+  color: #4a90e2; /* Голубой цвет */
+}
+
+.split-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.pricelist, .programs, .faq {
+  flex: 1;
+  min-width: 300px;
+}
+
+.pricelist h2, .programs h2, .faq h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.pricelist ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.pricelist ul li {
+  margin: 10px 0;
+}
+
+.programs article, .faq article {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.programs h3, .faq h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.programs p, .faq p {
+  font-size: 1.1rem;
+}
+
+.gallery-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.contacts, .gallery {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contacts h2, .gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contacts p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.contacts a {
+  color: #357abd;
+  text-decoration: underline;
+}
+
+.gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  margin: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.vision {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#massage .vision {
+  background-color: #ffe4c4; /* Персиковый фон для массажа */
+}
+
+#depilation .vision {
+  background-color: #e6f3fa; /* Светло-голубой фон для депиляции */
+}
+
+.vision h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.post {
+  background-color: #ffffff;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 1200px; /* Максимальная ширина */
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.post h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.post p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.main-post {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  text-align: left;
+}
+
+.main-post .post-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.main-post img {
+  width: 800px; /* Большой размер фото */
+  height: 533px;
+  object-fit: contain; /* Фото целиком, без обрезки */
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  flex: 1;
+  min-width: 300px;
+}
+
+footer {
+  background-color: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 10px; /* Тонкий футер */
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+  .hero {
+    height: 200px; /* Уменьшаем высоту фона */
+  }
+
+  .welcome {
+    padding: 20px 10px;
+  }
+
+  .welcome h1 {
+    font-size: 1.8rem;
+  }
+
+  .welcome p {
+    font-size: 1rem;
+  }
+
+  .tabs {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin-top: -10px;
+  }
+
+  .tab-link {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+
+  .tab-content {
+    padding: 20px 10px;
+  }
+
+  .split-section, .gallery-contacts {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  .pricelist, .programs, .faq, .contacts, .gallery {
+    min-width: 100%;
+  }
+
+  .pricelist h2, .programs h2, .faq h2, .contacts h2, .gallery h2 {
+    font-size: 1.5rem;
+  }
+
+  .pricelist ul {
+    font-size: 1rem;
+  }
+
+  .programs h3, .faq h3 {
+    font-size: 1.2rem;
+  }
+
+  .programs p, .faq p, .contacts p {
+    font-size: 1rem;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .vision {
+    padding: 20px 10px;
+  }
+
+  .vision h2 {
+    font-size: 1.5rem;
+  }
+
+  .post {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .post h3 {
+    font-size: 1.4rem;
+  }
+
+  .post p {
+    font-size: 1rem;
+  }
+
+  .main-post {
+    flex-direction: column; /* Фото под текстом */
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .main-post img {
+    width: 100%;
+    height: auto;
+    max-width: 600px; /* Ограничим для больших экранов */
+  }
+
+  .modal-close {
+    font-size: 30px;
+    right: 20px;
+  }
+
+  footer {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome h1 {
+    font-size: 1.5rem;
+  }
+
+  .welcome p {
+    font-size: 0.9rem;
+  }
+
+  .tab-link {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+
+  .pricelist h2, .programs h2, .faq h2, .contacts h2, .gallery h2 {
+    font-size: 1.3rem;
+  }
+
+  .vision h2 {
+    font-size: 1.3rem;
+  }
+
+  .post h3 {
+    font-size: 1.2rem;
+  }
+
+  .post p {
+    font-size: 0.9rem;
+  }
+}
